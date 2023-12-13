@@ -1,125 +1,223 @@
-/* Reset and Basic Styles */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-li,
-figure,
-figcaption {
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root{
+    --header-height: 3.5rem;
+
+/*--------colors-----*/
+--first-color: hsl(72, 59%, 45%);
+--first-color:hsl(72, 75%, 38%);
+--gradient-color: linear-gradient(180deg, 
+                hsl(151, 61%, 21%), 
+                hsl(151, 52%, 28%));
+
+--first-color-dark: hsl(151, 52%, 17%);
+--first-color-darker: hsl(151, 52%, 12%);
+--title-color: hsl(49, 96%, 91%);
+--text-color: hsl(99, 20%, 65%);
+
+/*------font and typography----*/
+--body-font: "Montserrat", sans-serif;
+--second-font: "Gwendoolyn", cursive;
+--biggest-font-size: 2rem;
+--h1-font-size: 1.5rem;
+--h2-font-font: 1.25rem;
+--normal-font-size: .938rem;
+--smaller-font-size: .75rem; 
+
+
+/*------font weight--------*/
+
+--font-regular: 400;
+--font-bold: 700;
+
+/*-----z index-----*/
+--z-tooltip: 10;
+--z-fixed: 100;
+
+}
+
+/*--esponive Typograph----*/
+@media screen and (min-width: 1150px){
+:root {
+    --biggest-font-size: 3rem;
+    --hi-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .813rem;
+}
+}
+/*-----------Base------*/
+*{
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
-    padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background: var(--gradient-color) no-repeat;
+    color: var(--text-color);
 }
 
-/* Header Styles */
-.top-header {
-    background-color: #ffffff;
-    padding: 15px 0;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
 }
 
-.navbar {
-    padding: 0;
-}
-
-.navbar-brand img {
-    max-height: 40px;
-}
-
-.navbar-toggler {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-}
-
-.navbar-toggler span {
+img{
     display: block;
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
+    max-width: 100%;
+    height: auto;
+
 }
 
-.navbar-toggler span:first-child {
-    transform-origin: 0% 0%;
+/*--Resuable css cass-*/
+.container{
+    max-width: 1120px;
+    margin-inline: 1.5rem;
 }
 
-.navbar-toggler span:last-child {
-    transform-origin: 0% 100%;
+
+.main {
+    overflow: hidden;
 }
 
-.navbar-toggler:hover span {
-    background-color: #555;
-}
-
-/* Navigation Styles */
-.navbar-nav {
-    margin-top: 15px;
-}
-
-.navbar-nav .nav-link {
-    font-size: 16px;
-    color: #333;
-    padding: 8px 15px;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    color: #e74c3c;
-}
-
-/* Loader Styles */
-#preloader {
+/* Header and Nav element */
+.header{
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
+    background-color: var(--first-color-dark);
+    z-index: var(--z-fixed);
+}
+
+.nav,
+.nav__logo,
+.nav__list,
+.nav__buttons{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
 }
 
-.loader {
-    display: inline-block;
+.nav{
     position: relative;
-    width: 80px;
-    height: 80px;
+    height: var(--header-height);
+    justify-content: space-between;
+    align-items: center;
 }
 
-.loader .box {
+.nav__logo{
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav__logo span:nth-child(1){
+    color: var(--first-color);
+    font-size: var(--h1-font-size);
+    font-family: var(--second-font);
+    transform: translateY(4px);
+}
+
+.nav__logo span:nth-child(2){
+    transform: translateY(-4px);
+}
+
+.nav__toggle,
+.nav__close{
+    display: inline-flex;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+/*--Nav for mobile devices-*/
+@media screen and (max-width: 1150px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: var(--gradient-color);
+        width: 80%;
+        height: 100%;
+        box-shadow: -2px 0 12px hsla(0, 0%, 0%, .2);
+        padding: 6rem 2rem 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5rem;
+        transition: right .4s;
+
+    }
+}
+
+.nav__list{
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.nav__link{
+    color: var(--text-color);
+    font-weight: var(--font-bold);
+    display: inline-flex;
+    flex-direction: column;
+    transition: color .4s;
+}
+
+.nav__link span {
+    font-size: var(--smaller-font-size);
+}
+
+.nav__link:hover{
+    color: var(--title-color);
+}
+
+.nav__buttons{
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.nav__notification{
+    position: relative;
+    background-color: var(--first-color);
+    width: 50px;
+    height: 50px;
+    border-radius: .75rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+
+.nav__bell{
+    width: 32px;
+}
+
+.nav__notification:hover{
+    background-color: var(--first-color-alt);
+}
+
+.nav__circle{
+    width: 24px;
+    height: 24px;
+    background-color: hsl(0, 100%, 39%);
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    font-size: var(--smaller-font-size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #e74c3c;
-    animation: loaderAnimation 1.5s infinite linear;
+    top: -6px;
+    right: -6px;
 }
 
-.loader .box:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-@keyframes loaderAnimation {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
-    }
+.nav__close{
+    position: absolute;
+    top: 1.15rem;
+    right
 }
