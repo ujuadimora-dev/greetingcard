@@ -99,3 +99,52 @@ const christmasCountdown = () => {
 
 
 setInterval(christmasCountdown, 1000);
+
+
+
+    
+//Script containing the generateStory function -->
+
+
+    function generateStory() {
+        console.log('Button clicked!');
+
+        // Get user input values
+        const category = document.getElementById('category').value;
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+
+        console.log('Category:', category);
+        console.log('Name:', name);
+        console.log('Age:', age);
+
+        fetch(`/api/generateStory?category=${category}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data received:', data);
+
+                // Build the story with user information
+                const story = `Hello ${name} (${age} years old), here's your Christmas story:\n\n${data.story}`;
+
+                // Display the story and image
+                document.getElementById('storyOutput').innerHTML = `
+                    <p>${story}</p>
+                    <img src="${data.imageUrl}" alt="Christmas Image" style="max-width: 100%;">
+                `;
+
+                console.log('Story displayed successfully!');
+            })
+            .catch(error => {
+                console.error('Error fetching story:', error);
+
+                document.getElementById('storyOutput').innerHTML = `<p>Sorry, an error occurred while generating the story. ${error.message}</p>`;
+
+                console.log('Error handling completed.');
+            });
+    }
+
+    // Attach event listener to the button
+    document.getElementById('generateButton').addEventListener('click', generateStory);
+
+    console.log('Script loaded successfully.');
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas E-card Generator</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #card-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #card-message {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .card-image {
+            width: 300px;
+        }
+
+        #generate-btn,
+        #send-btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #generate-btn:hover,
+        #send-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Christmas E-card Generator</h1>
+
+    <div id="card-container">
+        <textarea id="card-message" placeholder="Enter your Christmas message..."></textarea>
+        <br>
+        <button id="generate-btn" onclick="generateCard()">Generate Card</button>
+        <button id="send-btn" onclick="sendCard()">Send Card</button>
+    </div>
+
+    <script>
+        let generatedCard; // Variable to store the generated card
+
+        function generateCard() {
+            const message = document.getElementById('card-message').value;
+            
+            // Create the card elements
+            const cardImage = document.createElement('img');
+            cardImage.src = 'assets/images/backgrod.jpg';
+            cardImage.alt = 'Christmas Card Image';
+            cardImage.classList.add('card-image');
+
+            const cardMessage = document.createElement('p');
+            cardMessage.textContent = message;
+
+            // Store the generated card in the variable
+            generatedCard = document.createElement('div');
+            generatedCard.appendChild(cardImage);
+            generatedCard.appendChild(cardMessage);
+
+            // Clear the body and append the generated card
+            document.body.innerHTML = '';
+            document.body.appendChild(generatedCard);
+        }
+
+        function sendCard() {
+            if (generatedCard) {
+                const message = document.getElementById('card-message').value;
+                const endpoint = 'https://3000-ujuadimorad-greetingcar-iprhsii57t6.ws-eu107.gitpod.io/sendCard';
+
+                // Use JSONP by appending a callback parameter
+                const callbackName = 'jsonpCallback';
+                const script = document.createElement('script');
+                script.src = `${endpoint}?callback=${callbackName}&message=${encodeURIComponent(message)}`;
+                document.body.appendChild(script);
+
+                // Define the JSONP callback function
+                window[callbackName] = (data) => {
+                    console.log(data.message);
+                    // Optionally, you can display a success message to the user
+                };
+            } else {
+                console.error('Please generate a card first.');
+            }
+        }
+    </script>
+</body>
+</html>
