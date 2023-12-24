@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container_story">
-        <h1>Welcome to Adventure Christmas</h1>
+        <h1>Enjoy Christmas Adventure</h1>
         <div id="text">Text</div>
         <div id="option-buttons" class="btn-grid">
             <button class="btn">option1</button>
@@ -16,16 +16,23 @@
             <button class="btn">option3</button>
             <button class="btn">option4</button>
         </div>
-        <button id="homepage-button" class="btn1" onclick="navigateToHomepage()">Go Home</button>
+        
+        <!-- Corrected anchor tag for the "Go Home" button -->
+        <a href="index.html" id="homepage-button" class="btn1">Go Home</a>
     </div>
+    <audio id="backgroundMusic" loop>
+        <source src="./assets/images/Jingle-Bells(chosic.com).mp3" type="audio/mp3">
+    </audio>
+    
     <!--Snow js-->
     <script src="https://app.embed.im/snow.js" defer></script>
     <script src="assets/js/story.js"></script>
+    <!-- Play background music after the page has loaded -->
     <script>
-        function navigateToHomepage() {
-            // Replace this with the actual URL of your homepage
-            window.location.href = "https://8000-ujuadimorad-greetingcar-iprhsii57t6.ws-eu107.gitpod.io/index.html";
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('backgroundMusic').play();
+        });
     </script>
+    
 </body>
 </html>

@@ -76,7 +76,8 @@ body {
     outline: none;
     align-content: center;
     margin-left: 5%;
-    margin-top: 25px;
+  
+    text-decoration: none;
     
 }
 
@@ -94,7 +95,7 @@ body {
     margin-top: 10%;
     background-image: url('../images/error-message.png'); /* Set the background color with alpha for transparency */
     background-position: cover;
-    
+
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;

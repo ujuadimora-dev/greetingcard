@@ -57,7 +57,7 @@
                 <div class="nav__buttons">
                     <div class="nav__notification">
                         <img src="assets/images/bell.png" alt="bell" class="nav__bell">
-                        <div class="nav__circle">2</div>
+                        <div class="nav__circle">10</div>
                     </div>
                     <a href="error.html" class="button button__dark">send a card</a>
                 </div>
@@ -77,20 +77,19 @@
         <section class="home">
             <div class="home__container container">
                 <img src="assets/images/ch_pics.png" alt="picture" class="home__img">
-                
+
                 <div class="home__data">
                     <div>
                         <h1 class="home__title" id="title-data">
-                            last
                             <div class="home__number" id="number-data">03</div>
                             <div class="home__text" id="text-data">Days</div>
-                            To  Christmas Day
+                            To Christmas Day
                         </h1>
                         <h1 class="home__title" id="msg-christmas"></h1>
                     </div>
                     <p class="home__description">
-                        Merry Christmas and Blessed New Year. 
-                        It is a special season for Reconcilation and celebration
+                        Merry Christmas and a Blessed New Year.
+                        It is a special season for Reconciliation and celebration!
                     </p>
                     <a href="story.html" class="button"> Go Christmas Adventure</a>
                 </div>
@@ -99,13 +98,24 @@
 
                 <div class="home__blob"></div>
             </div>
+            <audio id="backgroundMusic" loop>
+                <source src="./assets/images/Deck-The-halls-Long-Version-chosic.com_.mp3" type="audio/mp3">
+            </audio>
         </section>
     </main>
-    <!--Snow js-->
+
+    <!-- Snow js -->
     <script src="https://app.embed.im/snow.js" defer></script>
-    <!--main Js-->
+
+    <!-- Main Js -->
     <script src="assets/js/scripts.js"></script>
 
+    <!-- Play background music after the page has loaded -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('backgroundMusic').play();
+        });
+    </script>
 </body>
 
 </html>
