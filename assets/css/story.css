@@ -3,25 +3,40 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-body{
-    padding: 0;
+
+
+body {
     margin: 0;
+    padding: 0;
+    background-image: url('../images/story_backgr.jpg'); /* Replace with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: 100vh;
-    background-color: darkgreen;
+    
 }
 
+
 .container_story{
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 5px;
-    box-shadow: 0 0 10px 2px;
+    
+        width: 800px;
+        max-width: 80%;
+        margin-top: 10%;
+        background-color: rgba(222, 8, 8, 0.3); /* Set the background color with alpha for transparency */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 2px;
+        text-align: center;
+        color: rgb(233, 238, 233); /* Set text color to contrast with the background */
+    }
+
+.container_story h1{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 800;
 }
 
 .btn-grid{
@@ -32,14 +47,57 @@ body{
 }
 
 .btn{
-    background-color: hsl(200, 100%, 50%);
-    border: 1px solid hsl(200, 100%, 30%);
+    background-color: hsl(106, 86%, 14%);
+    border: 1px solid hsl(110, 84%, 12%);
     border-radius: 5px;
     padding: 5px 10px;
-    color: wheat;
+    color: white;
     outline: none;
+    align-content: center;
+    font-size: 2rem;
 }
 
 .btn:hover{
     border-color: red;
+}
+
+#homepage-button{
+    font-size: 26px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btn1{
+    background-color: hsl(106, 86%, 14%);
+    border: 2px solid hsl(106, 86%, 14%);
+    border-radius: 5px;
+    padding: 10px;
+    color: wheat;
+    outline: none;
+    align-content: center;
+    margin-left: 5%;
+    margin-top: 25px;
+    
+}
+
+.btn1:hover{
+    border-color: red;
+}
+
+
+/*-------------------*/
+
+.container_error{
+    
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    background-image: url('../images/error-message.png'); /* Set the background color with alpha for transparency */
+    background-position: cover;
+    
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+    text-align: center;
+    color: rgb(233, 238, 233); /* Set text color to contrast with the background */
 }

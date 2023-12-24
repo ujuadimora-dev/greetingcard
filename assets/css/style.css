@@ -562,9 +562,9 @@ img{
 }
 
 .contact .button{
-    background-color: var(--first-color-dark);
+    background-color: var(--first-color-darker);
     color: white;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 18px;
     cursor: pointer;
@@ -630,6 +630,11 @@ img{
     margin-top: 5%;
     font-size: 1.5rem;
     z-index: 4;
+}
+
+ul li a {
+    color:var(--title-color);
+    text-decoration: none; /* Optional: Remove underlines from links */
 }
 
 

@@ -10,7 +10,9 @@ function startGame() {
 
 function showTextNode(textNodeIndex) {
     const textNode = textNodes.find((node) => node.id === textNodeIndex);
-    textElement.innerText = textNode.text;
+
+    // Add styles to make text bold, red, with font size and weight
+    textElement.innerHTML = `<strong style="color: white; font-size: 28px; font-weight: bold;">${textNode.text}</strong>`;
 
     while (optionButtonsElement.firstChild) {
         optionButtonsElement.removeChild(optionButtonsElement.firstChild);
@@ -40,13 +42,15 @@ function selectOption(option) {
     showTextNode(nextTextNodeId);
 }
 
+
+
 const textNodes = [
     {
         id: 1,
         text: 'You are patiently waiting for Christmas chicken jollof/fried rice/fried plantain with goat meat pepper soup, and suddenly you sleep off. When you wake up, you find yourself in a strange place, and you see Mother Christmas carrying a bag full of small stones near you.',
         options: [
             {
-                text: 'Take the bag from her',
+                text: 'Take the bag',
                 setState: { stoneBag: true },
                 nextText: 2,
             },
@@ -58,7 +62,7 @@ const textNodes = [
     },
     {
         id: 2,
-        text: 'You look around in search of where you are when you come across Father Christmas with a sword.',
+        text: 'You look around in search of where you are when you come across Father Christmas with a sword and a shield.',
         options: [
             {
                 text: 'Trade with Father Christmas for a sword',
